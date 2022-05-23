@@ -59,7 +59,7 @@ async function run() {
             const result = await productCollection.deleteOne(query);
             res.send(result);
         });
-
+        // client product show
         app.get('/myItem', async (req, res) => {
             const email = req.query.email;
             const query = { email: email };
@@ -67,6 +67,7 @@ async function run() {
             const items = await cursor.toArray();
             res.send(items);
         })
+        // client product delete
         app.delete('/myItem/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
